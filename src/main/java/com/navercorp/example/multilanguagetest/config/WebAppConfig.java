@@ -1,10 +1,9 @@
 package com.navercorp.example.multilanguagetest.config;
 
-import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -12,23 +11,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
+@Import(AppConfig.class)
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.navercorp.example.multilanguagetest"})
 public class WebAppConfig implements WebMvcConfigurer {
-	/**
-	 * 프로퍼티로부터 메시지를 읽기위한 MessageSource
-	 *
-	 * @return MessageSource 객체
-	 */
-	@Bean
-	public MessageSource messageSource() {
-		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-		messageSource.setDefaultEncoding("UTF-8");
-		messageSource.setBasename("classpath:/messages/message");
-		messageSource.setCacheSeconds(-1);
-		return messageSource;
-	}
-
 	/**
 	 * jsp 파일을 뷰로 보여주기 위한 ViewResolver
 	 *
