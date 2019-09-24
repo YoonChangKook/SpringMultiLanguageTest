@@ -12,4 +12,4 @@
 
 * ReloadableResourceBundleMessageSource: 리소스 번들이 변경되면 애플리케이션을 재시작할 필요없이 다시 로딩할 수 있는 메시지 소스
 
-이 프로젝트에선 ReloadableResourceBundleMessageSource를 사용하였다.
+이 프로젝트에선 ResourceBundleMessageSource를 사용하였다.
